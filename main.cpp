@@ -139,44 +139,6 @@ class Student{
 
 
 
-            /*
-            for(int j = 0; j<6 ; j++){
-                if(color[4][j]==Blue){
-                    k = 1;
-                }
-            }
-
-
-            if(k == 0){
-                x=4;
-                y=1;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=4;
-                y=4;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=3;
-                y=2;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=3;
-                y=3;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-            }
-
-*/
-
-
 
 
 
@@ -287,27 +249,7 @@ class Student{
 
                 }
             }
-            /*
-            for(int i =0;i<max;i++){
-
-                for(int j=0;j<6;j++){
-                    if(color[i][j]==inputColor || color[i][j]==White){
-                        x=i;
-                        y=j;
-
-                        color[x][y]=inputColor;
-                        Record[x][y]++;
-
-                        return;
-                    }
-
-                }
-            }
-*/
-            /*
-            for( i=0,j=0;i<5,j<6;i++,j++){
-                if(Record)
-            }*/
+            
         }
         // Any Code You Want to Add
         int get_place(int i,int j){
