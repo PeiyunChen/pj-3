@@ -6,8 +6,17 @@ class Student{
             //y=j;
             // Your Code
             int k=0;
+            int left =0;
             x=0;
             y=0;
+            if(color[x][y]==White && Record[x][y]==0){
+                color[x][y]=inputColor;
+                Record[x][y]++;
+                return;
+            }
+                        x=0;
+            y=5;
+
             if(color[x][y]==White && Record[x][y]==0){
                 color[x][y]=inputColor;
                 Record[x][y]++;
@@ -20,21 +29,30 @@ class Student{
                 Record[x][y]++;
                 return;
             }
-            x=0;
-            y=5;
-            if(color[x][y]==White && Record[x][y]==0){
-                color[x][y]=inputColor;
-                Record[x][y]++;
-                return;
-            }
             x=4;
             y=5;
             if(color[x][y]==White && Record[x][y]==0){
                 color[x][y]=inputColor;
                 Record[x][y]++;
                 return;
+            }
+            //???拇????摰?閬?隞暻潔?
+/*
+            for(int i=0;i<5;i++){
+                for(int j =0; j<6;j++){
+                    if(color[i][j]!=Black)
+                        left++;
+                }
             }
             
+            if(left==6){
+                x=3;
+                y=2;
+                return;
+                
+            }*/
+            /*
+
             x=0;
             y=0;
             if(Record[x][y]==1 && color[x][y]==inputColor){
@@ -59,12 +77,26 @@ class Student{
                 Record[x][y]++;
                 return;
             }
+*/
+//??航???????臬隞仿??貊? 撠梯?
 
 
-            for(int i =0;i<6 ; i++){
-                for(int j = 0; j < 5 ; j++){
+            for(int i =0;i<5 ; i++){
+                for(int j = 0; j < 6 ; j++){
                     if(color[i][j]==inputColor || color[i][j]==White){                        
-                        if(Record[i][j] == Max[i][j] -1 && (color[i+1][j]!=inputColor || color[i-1][j]!=inputColor || color[i][j+1]!=inputColor || color[i][j-1]!=inputColor){                        
+                        if(Record[i][j] == Max[i][j] -1 && ((color[i+1][j]==Blue && Record[i+1][j] == Max[i+1][j] -1) || (color[i-1][j]==Blue&&Record[i-1][j] == Max[i-1][j] -1) || (color[i][j+1]==Blue&&Record[i][j+1] == Max[i][j+1] -1) || (color[i][j-1]==Blue&&Record[i][j-1] == Max[i][j-1] -1))){                        
+                            x=i;
+                            y=j;
+                            return;
+                        }
+                    }
+                }
+            }
+//??航??脩?
+            for(int i =0;i<5 ; i++){
+                for(int j = 0; j < 6 ; j++){
+                    if(color[i][j]==inputColor || color[i][j]==White){                        
+                        if(Record[i][j] == Max[i][j] -1 && (color[i+1][j]==Blue || color[i-1][j]==Blue || color[i][j+1]==Blue || color[i][j-1]==Blue)){                        
                             x=i;
                             y=j;
                             return;
@@ -73,11 +105,55 @@ class Student{
                 }
             }
             
-            for(int i =0;i<6 ; i++){
-                for(int j = 0; j < 5 ; j++){
+            for(int i =4;i>=0 ; i--){
+                for(int j = 5; j >=0  ; j--){
                     if(color[i][j]==inputColor || color[i][j]==White){
                         
-                        if(Record[i][j] < Max[i][j] -1 && get_place(i,j)==0){
+                        if(Record[i][j] == Max[i][j] -2 ){
+                        
+                            x=i;
+                            y=j;
+                            
+                            return;
+                        }
+                    }
+                }
+            }
+             for(int i =4;i>=0 ; i--){
+                for(int j = 5; j >= 0 ; j--){
+                    if(color[i][j]==inputColor || color[i][j]==White){
+                        
+                        if(Record[i][j] == 1){
+                        
+                            x=i;
+                            y=j;
+                            
+                            return;
+                        }
+                    }
+                }
+            }
+
+            for(int i =4;i>=0 ; i--){
+                for(int j = 5; j >= 0 ; j--){
+                    if(color[i][j]==inputColor || color[i][j]==White){
+                        
+                        if(Record[i][j] == 0){
+                        
+                            x=i;
+                            y=j;
+                            
+                            return;
+                        }
+                    }
+                }
+            }
+
+            for(int i =4;i>=0 ; i--){
+                for(int j = 5; j >= 0 ; j--){
+                    if(color[i][j]==inputColor || color[i][j]==White){
+                        
+                        if(Record[i][j] < Max[i][j] -1 && (color[i+1][j]!=Blue && color[i-1][j]!=Blue && color[i][j+1]!=Blue && color[i][j-1]!=Blue)){  
                         
                             x=i;
                             y=j;
@@ -91,64 +167,11 @@ class Student{
 
 
 
-            /*          
-            for(int j = 0; j<6 ; j++){
-                if(color[4][j]==Blue){
-                    k = 1;
-                }
-            }
-            
-
-            if(k == 0){
-                x=4;
-                y=1;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=4;
-                y=4;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=3;
-                y=2;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-                x=3;
-                y=3;
-                if(Max[x][y]-Record[x][y] >0){
-                    Record[x][y]++;
-                    return;
-                }
-            }
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
             int max=5;
             if(k ==0) max = 4;
             
-            for(int i =0;i<max;i++){
+            for(int i =0;i<5;i++){
                 
                 for(int j=0;j<6;j++){
                     if(color[i][j]==inputColor || color[i][j]==White){
@@ -185,26 +208,65 @@ class Student{
                     }
 
                 }
-            }
-            for(int i =0;i<max;i++){
+            }*/
+            for(int i =4;i>=0;i--){
                 
-                for(int j=0;j<6;j++){
+                for(int j=5;j>=0;j--){
                     if(color[i][j]==inputColor || color[i][j]==White){
                         
-                        if(Record[i][j]==3){
-                            
-                            x=i;
-                            y=j;
-                            
-                            return;
+                        if(get_place(i,j)==0){
+                            if(Record[i][j]<Max[i][j]-1){
+                                x=i;
+                                y=j;
+                                
+                                return;
+                            }
+
+
                         }
+
+                        
                         
                         
                     }
 
                 }
             }
-            
+            for(int i =4;i>=0;i--){
+                
+                for(int j=5;j>=0;j--){
+                    if(color[i][j]==inputColor || color[i][j]==White){
+                        
+                        if(Record[i][j]<Max[i][j]-1){
+                            x=i;
+                            y=j;
+                            
+                            return;
+                        }  
+                            
+                       
+                    }
+
+                }
+            }
+            for(int i =4;i>=0;i--){
+                
+                for(int j=5;j>=0;j--){
+                    if(color[i][j]==inputColor || color[i][j]==White){
+
+                            
+                            x=i;
+                            y=j;
+                            
+                            return;
+                        
+                        
+                        
+                    }
+
+                }
+            }
+            /*
             for(int i =0;i<max;i++){
                 
                 for(int j=0;j<6;j++){
@@ -220,7 +282,7 @@ class Student{
 
                 }
             }
-
+*/
             /*
             for( i=0,j=0;i<5,j<6;i++,j++){
                 if(Record)
